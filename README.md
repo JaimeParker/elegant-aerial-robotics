@@ -1,2 +1,345 @@
-# elegant-aerial-robotics
-The tech&amp;art of aerial robotics 空中机器人的”技艺“
+<h1 align="center">空中机器人的技艺 Elegant-Aerial-Robotics</h1>
+
+# Content 目录
+
+<nav>
+    <ul>
+        <li><a href="#introduction">1. Introduction</a></li>
+        <li><a href="#generalized-aerial-robots">2. Generalized Aerial Robots 广义空中机器人</a>
+            <ul>
+                <li><a href="#multicopter">2.1 Multicopter 多旋翼</a>
+                    <ul>
+                        <li><a href="#mc-configuration">2.1.1 Multicopter-Configuration 按构型</a></li>
+                        <li><a href="#mc-media">2.1.2 Multicopter-Media 按介质</a></li>
+                        <li><a href="#mc-modal">2.1.3 Multicopter-Modal 按模态</a></li>
+                        <li><a href="#mc-actuate">2.1.4 Multicopter-Actuate 按驱动</a></li>
+                        <li><a href="#mc-jointlink">2.1.5 Multicopter-Link 按挂载</a></li>
+                    </ul>
+                </li>
+                <li><a href="#vtol">2.2 (E)VTOL 垂起固定翼</a></li>
+                <li><a href="#fixed-wing">2.3 Fixed-Wing 固定翼</a></li>
+                <li><a href="#helicopter">2.4 Helicopter 直升机</a></li>
+                <li><a href="#balloon">2.5 Balloon 气球/飞艇</a></li>
+            </ul>
+        </li>
+        <li><a href="#research">3. Research 主要研究方向</a>
+            <ul>
+                <li><a href="#auto-flight">3.1 Autonomous Flight 自主飞行</a></li>
+                <li><a href="#racing">3.2 Racing 竞速/大机动飞行</a></li>
+                <li><a href="#flight-control">3.3 Flight Control 飞行控制</a></li>
+                <li><a href="#exploration">3.4 Exploration 探索</a></li>
+                <li><a href="#swarm">3.5 Swarm 集群</a></li>
+                <li><a href="#state-estimation">3.6 State Estimation 状态估计</a></li>
+                <li><a href="#aerial-manipulation">3.7 Aerial Manipulation 空中操作</a></li>
+                <li><a href="#novel-design">3.8 Novel Design 新构型设计</a></li>
+            </ul>
+        </li>
+        <li><a href="#tech-stack">4. Tech stack 技术栈</a>
+            <ul>
+                <li><a href="#general-design">4.1 General Design 总体设计</a>
+                    <ul>
+                        <li><a href="#pure-self-design">4.1.1 Self-Design 自主设计</a></li>
+                        <li><a href="#buy-as-need">4.1.2 Buy-as-Needed 采购</a></li>
+                    </ul>
+                </li>
+                <li><a href="#dynamics">4.2 Dynamics 动力学</a>
+                    <ul>
+                        <li><a href="#fluid mechanics">4.2.1 Fluid Mechanics流体力学</a></li>
+                        <li><a href="#aerodynamics">4.2.2 Aerodynamics空气动力学</a></li>
+                        <li><a href="#flightdynamics">4.2.3 Flight Dynamics飞行力学</a></li>
+                    </ul>
+                </li>
+                <li><a href="#mechanics">4.3 Mechanics 机械</a></li>
+                <li><a href="#embedded">4.4 Embedded 嵌入式</a>
+                    <ul>
+                        <li><a href="#stm32">4.4.1 STM32</a></li>
+                        <li><a href="#nuttx">4.4.2 NuttX</a></li>
+                        <li><a href="#Pixhawk">4.4.3 Pixhawk</a></li>
+                        <li><a href="#other-flight-hardware">4.4.4 Other Flight Hardware</a></li>
+                    </ul>
+                </li>
+                <li><a href="#communication">4.5 Communication 通信</a>
+                    <ul>
+                        <li><a href="#communication-basis">4.5.1 Communication Basics 通信原理</a></li>
+                        <li><a href="#uart">4.5.2 UART</a></li>
+                        <li><a href="#CAN">4.5.3 CAN</a></li>
+                        <li><a href="#ROS">4.5.4 ROS及功能包</a></li>
+                    </ul>
+                </li>
+                <li><a href="#sensing">4.6 Sensing/Perception 传感/感知</a>
+                    <ul>
+                        <li><a href="#sensors">4.6.1 Sensors 传感器</a></li>
+                        <li><a href="#sensing/state-estimation">4.6.2 State Estimation 状态估计</a></li>
+                        <li><a href="#tracking">4.6.3 Tracking 目标跟踪</a></li>
+                    </ul>
+                </li>
+                <li><a href="#control">4.7 Control 控制</a>
+                    <ul>
+                        <li><a href="#control-basis">4.7.1 Control Basics 控制原理</a></li>
+                        <li><a href="#control-methods">4.7.2 Control Methods 控制方法</a></li>
+                        <li><a href="#control-architecture">4.7.3 PX4-Autopilot PX4飞控</a></li>
+                    </ul>
+                </li>
+                <li><a href="#planning">4.8 Planning 规划</a>
+                    <ul>
+                        <li><a href="#path-planning">4.8.1 Path Planning 路径规划</a></li>
+                        <li><a href="#trajectory-planning">4.8.2 Trajectory Planning 轨迹规划</a></li>
+                        <li><a href="#motion-planning">4.8.3 Motion Planning 运动规划</a></li>
+                        <li><a href="#task-planning">4.8.4 Task Planning 任务规划</a></li>
+                    </ul>
+                </li>
+                <li><a href="#simulation">4.9 Simulation 仿真</a>
+                    <ul>
+                        <li><a href="#gazebo">4.9.1 Gazebo</a></li>
+                        <li><a href="#air-sim">4.9.2 AirSim</a></li>
+                        <li><a href="#Flightmare">4.9.3 Flightmare</a></li>
+                        <li><a href="#Rotors-simulation">4.9.4 Rotors Simulation</a></li>
+                        <li><a href="#Issac-Sim">4.9.5 Issac Sim</a></li>
+                        <li><a href="#Aerial-Gym">4.9.6 Aerial Gym</a></li>
+                    </ul>
+                </li>
+                <li><a href="#real-flight">4.10 Real Flight 实机</a>
+                    <ul>
+                        <li><a href="#remote-control">4.10.1 Remote Control 遥控</a></li>
+                        <li><a href="#QGC">4.10.2 QGC</a></li>
+                        <li><a href="#flight-log">4.10.3 Flight Log 飞行日志</a></li>
+                        <li><a href="#companion-computer">4.10.4 Companion Computer 上位机</a></li>
+                    </ul>
+                </li>
+                <li><a href="#nn-methods">4.11 NN Methods learning方法</a>
+                    <ul>
+                        <li><a href="#reinforcement-learning">4.11.1 Reinforcement Learning 强化学习</a></li>
+                        <li><a href="#generative-models">4.11.2 Generative Models 生成模型</a></li>
+                        <li><a href="#LLM">4.11.3 (M)LLMs （视觉等模态）大语言模型</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#labs-home">5. Labs and Homepages</a>
+            <ul>
+                <li><a href="#domestic">5.1 Domestic(PRC) 国内</a>
+                    <ul>
+                        <li><a href="#chinamainland">5.1.1 Mainland PRC 中国大陆</a></li>
+                        <li><a href="#hongkong">5.1.2 Hongkong, China 中国香港</a></li>
+                    </ul>
+                </li>
+                <li><a href="#overseas">5.2 Overseas(Out of PRC) 国外</a>
+                    <ul>
+                        <li><a href="#north-america">5.2.1 North America 北美</a></li>
+                        <li><a href="#europe">5.2.2 Europe 欧洲</a></li>
+                        <li><a href="#asia">5.2.3 Asia 亚洲</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<section id="introduction"></section>
+
+# 1. Introduction
+
+<section id="generalized-aerial-robots"></section>
+
+# 2. Generalized Aerial Robots 广义空中机器人
+
+从构型出发，我们首先从空中机器人本体进行介绍。
+
+<img src="./assets/images/广义空中机器人generalized aerial robots.png" alt="Generalized Aerial Robots" width="600px"/>
+
+<section id="multicopter"></section>
+
+## 2.1 Multicopter 多旋翼
+
+这里会对多旋翼进行一个简单介绍，所以不会罗列详细的工作，更接近于科普。
+
+多旋翼是空中机器人中最常见的类型，通常由多个旋翼组成。
+以下会介绍多旋翼的几种分类方式，做到尽可能地独立，但仍然无法避免交叉。
+
+<section id="mc-configuration"></section>
+
+### 2.1.1 Multicopter-Configuration 按构型
+
+这里准确想表达的是变形的能力(morphing/deformable)，虽然以多旋翼为基础的空中机器人构型各式各样，但可以将其分为能够变形和不能变形两大类。
+
+列举几个工作（若作为科普，可以直接看YouTube）：
+* [Design, Modeling, and Control of an Aerial Robot DRAGON: A Dual-Rotor-Embedded Multilink Robot With the Ability of Multi-Degree-of-Freedom Aerial Transformation](https://ieeexplore.ieee.org/document/8258850)，[[YouTube]](https://www.youtube.com/watch?v=ZDYU22qNI_Q)，ICRA 2018，Dragon Lab，多关节可变形一家独大
+* [Design and Control of a Passively Morphing Quadcopter](https://ieeexplore.ieee.org/document/8794373), [[YouTube]](https://www.youtube.com/watch?v=MSvoQT__c9U)，ICRA 2019，HiPeRLab，可变形四旋翼
+* [Biomimetic Morphing Quadrotor Inspired by Eagle Claw for Dynamic Grasping](https://ieeexplore.ieee.org/document/10495172), TRO 2024，IRMV Lab，仿生变形四旋翼
+* [Ring-Rotor: A Novel Retractable Ring-Shaped Quadrotor With Aerial Grasping and Transportation Capability](https://ieeexplore.ieee.org/document/10044964), [[bilibili]](https://www.bilibili.com/video/BV1gY4y1K723), Fast Lab ZJU, “伸缩”四旋翼；后续的工作Shape-Adaptive Planning and Control for a Deformable Quadrotor，[[bilibili]](https://www.bilibili.com/video/BV14eRpYnE8K/)，submitted to IROS 2025，Fast Lab ZJU，变形四旋翼的规划
+* [The Foldable Drone: A Morphing Quadrotor That Can Squeeze and Fly](https://ieeexplore.ieee.org/document/8567932), RAL 2018, RPG UZH
+
+另外bi-copter的工作：
+* [Gemini II: Design, Modeling, and Control of a Compact Yet Efficient Servoless Bi-copter](https://ieeexplore.ieee.org/document/9736334), [[YouTube]](https://www.youtube.com/watch?v=qGhQbPtp7Sw&t=2s), TMECH 2022, MaRS Lab HKU
+
+
+<section id="mc-media"></section>
+
+### 2.1.2 Multicopter-Media 按介质
+
+多见于跨空气-水-地面（结合）介质的空中机器人。
+
+* [Toward a gliding hybrid aerial underwater vehicle: Design, fabrication, and experiments](https://onlinelibrary.wiley.com/doi/abs/10.1002/rob.22063), JFR 2022, SJTU，“哪吒III（垂起固定翼式）”海空跨域无人航行器
+
+<section id="mc-modal"></section>
+
+### 2.1.3 Multicopter-Modal 按模态
+
+* [Miniature deep-sea morphable robot with multimodal locomotion](https://www.science.org/doi/10.1126/scirobotics.adp7821), Science Robotics 2025, BUAA, [文力](http://www.me.buaa.edu.cn/info/1071/2298.htm)，[丁希仑](http://www.me.buaa.edu.cn/info/1071/2141.htm)，虽然是水下多模态，但太大佬了
+* [Design, Modeling, and Control of a Quadruped Robot SPIDAR: Spherically Vectorable and Distributed Rotors Assisted Air-Ground Quadruped Robot](https://ieeexplore.ieee.org/document/10113721), [[YouTube]](https://www.youtube.com/watch?v=lLvsxmJUyCk), RAL 2023, Dragon Lab，飞行与爬行模态，Multi-Modal Locomotion也是他们的研究方向之一
+* [Skater: A Novel Bi-Modal Bi-Copter Robot for Adaptive Locomotion in Air and Diverse Terrain](https://ieeexplore.ieee.org/document/10538378), [[bilibili]](https://www.bilibili.com/video/BV1y2421M7HM/), RAL 2024, Fast Lab ZJU，飞行与滚动模态；以及之前的[Model-Based Planning and Control for Terrestrial-Aerial Bimodal Vehicles with Passive Wheels](https://ieeexplore.ieee.org/document/10342188), [[bilibili]](https://www.bilibili.com/video/BV1Dj411M7Uh)
+* [DoubleBee: A Hybrid Aerial-Ground Robot with Two Active Wheels](https://ieeexplore.ieee.org/document/10341984), IROS 2023, AirLab CMU
+
+<section id="mc-actuate"></section>
+
+### 2.1.4 Multicopter-Actuate 按驱动
+
+以四旋翼无人机举例，传统的构型是欠驱动的，即只有四个控制输入（四个电机），而有六个自由度（x、y、z、roll、pitch、yaw）。
+
+全驱动则可以通过改变电机位姿或其他方法来实现。
+
+* [Fully Actuated Multirotor UAVs: A Literature Review](https://ieeexplore.ieee.org/document/8978486?arnumber=8978486), RAM 2020
+* [The Voliro Omniorientational Hexacopter: An Agile and Maneuverable Tiltable-Rotor Aerial Vehicle](https://ieeexplore.ieee.org/document/8485627/), RAM 2018
+* [FLOAT Drone: A Fully-actuated Coaxial Aerial Robot for Close-Proximity Operations](https://arxiv.org/abs/2503.00785) [[Website]](https://zju-jxlin.github.io/float-drone.github.io/), [[bilibili]](https://www.bilibili.com/video/BV1svRpYSE9c/) submitted to IROS 2025, Fast Lab ZJU, 解决气流反作用力
+
+<section id="mc-jointlink"></section>
+
+### 2.1.5 Multicopter-Link 按挂载
+
+多旋翼+刚体/灵巧/软体臂的方案就很多了，以下列举一些：
+
+* [Past, Present, and Future of Aerial Robotic Manipulators](https://ieeexplore.ieee.org/document/9462539), TRO 2022, Antonio Franchi
+* [AeCoM: An Aerial Continuum Manipulator With  IMU-Based Kinematic Modeling and  Tendon-Slacking Prevention](https://ieeexplore.ieee.org/document/10081306), TSMC 2023, ArcLab HKU, 灵巧臂
+* [A dexterous and compliant aerial continuum manipulator for cluttered and constrained environments](https://www.nature.com/articles/s41467-024-55157-2), Nature 2025, ArcLab 2025, 灵巧臂“会飞的象鼻”
+
+
+<section id="vtol"></section>
+
+## 2.2 (E)VTOL 垂起固定翼
+
+<section id="fixed-wing"></section>
+
+## 2.3 Fixed-Wing 固定翼
+
+<section id="helicopter"></section>
+
+## 2.4 Helicopter 直升机
+
+<section id="balloon"></section>
+
+## 2.5 Balloon 气球/飞艇
+
+
+
+<section id="research"></section>
+
+# 3. Research 主要研究方向与最新研究
+
+<img src="./assets/images/研究方向Aerial Robotics Research.png" alt="Aerial Robotics Research" width="600px"/>
+
+<section id="auto-flight"></section>
+
+## 3.1 Autonomous Flight 自主飞行
+
+<section id="racing"></section>
+
+## 3.2 Racing 竞速/大机动飞行
+
+<section id="flight-control"></section>
+
+## 3.3 Flight Control 飞行控制
+
+<section id="exploration"></section>
+
+## 3.4 Exploration 探索
+
+<section id="swarm"></section>
+
+## 3.5 Swarm 集群
+
+<section id="state-estimation"></section>
+
+## 3.6 State Estimation 状态估计
+
+<section id="aerial-manipulation"></section>
+
+## 3.7 Aerial Manipulation 空中操作
+
+<section id="novel-design"></section>
+
+## 3.8 Novel Design 新构型设计
+
+
+
+<section id="tech-stack"></section>
+
+# 4. Tech stack 技术栈
+
+<img src="./assets/images/技术栈Aerial RoboticsTech Stack.png" alt="Aerial Robotics Tech Stack" width="800px"/>
+
+
+<section id="labs-home"></section>
+
+# 5. Labs and Homepages
+
+<section id="domestic"></section>
+
+## 5.1 Domestic(PRC) 国内
+
+<section id="chinamainland"></section>
+
+### 5.1.1 Mainland PRC 中国大陆
+
+* [Fast Lab ZJU](http://zju-fast.com/)
+* [可靠飞行控制研究组 BUAA](https://shi.buaa.edu.cn/quanquan/zh_CN/index/4733/list/index.htm)
+* [郭雷 BUAA](https://shi.buaa.edu.cn/guolei/zh_CN/)
+* [IRMV Lab SJTU](http://irmv.sjtu.edu.cn/)
+* [Shanghai Key Lab of Navigation & Location-based Services SJTU](https://drone.sjtu.edu.cn/dpzou/)
+* [董伟 SJTU](https://me.sjtu.edu.cn/teacher_directory1/dongwei1.html)
+* [STAR SUSTech](https://robotics-star.com/)
+* [田栢苓 TJU](https://faculty.tju.edu.cn/116115/zh_CN/index.htm)
+* [WINDY Lab](https://shiyuzhao.westlake.edu.cn/)
+
+
+<section id="hongkong"></section>
+
+### 5.1.2 Hongkong, China 中国香港
+
+* [HKUST Aerial Robotics Group](https://uav.hkust.edu.hk/)
+* [MaRS Lab HKU](https://mars.hku.hk/)
+* [ArcLab HKU](https://arclab.hku.hk/)
+* [AIMS PolyU](https://sites.google.com/view/hailong-huang/home)
+
+
+<section id="overseas"></section>
+
+## 5.2 Overseas(Out of PRC) 国外
+
+<section id="north-america"></section>
+
+### 5.2.1 North America 北美
+
+* [GRASP Laboratory UPenn](https://www.grasp.upenn.edu/), **[Vijay Kumar](https://www.kumarrobotics.org/)**
+* [HiPeRLab UC Berkeley](https://hiperlab.berkeley.edu/)
+* [AurLab CMU](https://theairlab.org/)
+* [LECAR Lab CMU](https://lecar-lab.github.io/)
+* [Russ Tedrake](https://locomotion.csail.mit.edu/russt.html)
+* [MIT Aerospace Controls Laboratory](https://acl.mit.edu/)
+
+<section id="europe"></section>
+
+### 5.2.2 Europe 欧洲
+
+* [ETH ASL](https://asl.ethz.ch/)
+* [RPG UZH](https://rpg.ifi.uzh.ch/)
+* [V4RL ETH](https://www.v4rl.com/)
+
+
+<section id="asia"></section>
+
+### 5.2.3 Asia 亚洲
+
+* [Dragon Lab 东京大学](http://www.dragon.t.u-tokyo.ac.jp/)
+* [谢立华 NTU](https://personal.ntu.edu.sg/elhxie/)
+* [Unmanned Systems Research Group CUHK&NUS](http://www.mae.cuhk.edu.hk/~usr/index.html)
+
