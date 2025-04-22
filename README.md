@@ -20,6 +20,7 @@
                 <li><a href="#fixed-wing">2.3 Fixed-Wing 固定翼</a></li>
                 <li><a href="#helicopter">2.4 Helicopter 直升机</a></li>
                 <li><a href="#balloon">2.5 Balloon 气球/飞艇</a></li>
+                <li><a href="#ornithopter">2.6 Ornithopter 扑翼机</a></li>
             </ul>
         </li>
         <li><a href="#research">3. Research 主要研究方向</a>
@@ -229,6 +230,10 @@
 
 ## 2.5 Balloon 气球/飞艇
 
+<section id="ornithopter"></section>
+
+## 2.6 Ornithopter 扑翼机
+
 
 
 <section id="research"></section>
@@ -240,6 +245,17 @@
 <section id="auto-flight"></section>
 
 ## 3.1 Autonomous Flight 自主飞行
+
+自主飞行包含感知，规划与控制等方面的工作。如果粗糙地将其分类，可以分成基于优化的和基于学习的两大类。其中，基于优化的往往采用前端+后端的方法，而基于学习的则各式各样。
+
+近期的工作：
+
+基于优化的工作：
+* [Minimum snap trajectory generation and control for quadrotors](https://ieeexplore.ieee.org/document/5980409), ICRA 2011, [Vijay Kumar](https://www.kumarrobotics.org/), UPenn，最早的轨迹规划工作之一，开山之作，提出四旋翼的微分平坦特性，可以用 x,y,z,yaw 及其导数来推导出12个量，因此轨迹多以x,y,z,yaw为主。
+* [Continuous-time trajectory optimization for online UAV replanning](https://ieeexplore.ieee.org/document/7759784), IROS 2016, ASL ETH，提出了基于梯度的轨迹规划方法，后续的工作也都在这个基础上进行改进。
+* 可以选择性地跳过一些基于gradient和Safe Flight Corridor的工作，直接看第一个标准优雅的规划器Fast-Planner的第一版，[Robust and Efficient Quadrotor Trajectory Generation for Fast Autonomous Flight](https://ieeexplore.ieee.org/document/8758904/), RAL 2019, HKUST Aerial Robotics Group；之后又有了第二、三版文章，分别聚焦于topological planning和perception-aware，[Robust Real-time UAV Replanning Using Guided Gradient-based Optimization and Topological Paths](https://ieeexplore.ieee.org/document/9196996/), ICRA 2020; [RAPTOR: Robust and Perception-Aware Trajectory Replanning for Quadrotor Fast Flight](https://ieeexplore.ieee.org/document/9422918/), TRO 2021
+* ESDF free的[EGO-Planner: An ESDF-Free Gradient-Based Local Planner for Quadrotors](https://ieeexplore.ieee.org/document/9309347/), RAL 2021
+* 最后到时空联合规划[[minco]](https://github.com/ZJU-FAST-Lab/GCOPTER), [Geometrically Constrained Trajectory Optimization for Multicopters](https://ieeexplore.ieee.org/document/9765821), TRO 2022, Fast Lab ZJU，提出了基于几何约束的轨迹优化方法，解决了多旋翼的时空联合规划问题。
 
 <section id="racing"></section>
 
@@ -276,6 +292,212 @@
 # 4. Tech stack 技术栈
 
 <img src="./assets/images/技术栈Aerial RoboticsTech Stack.png" alt="Aerial Robotics Tech Stack" width="800px"/>
+
+<section id="general-design"></section>
+
+## 4.1 General Design 总体设计
+
+总体设计一般是从需求出发，进行设计与分析。
+
+<section id="pure-self-design"></section>
+
+### 4.1.1 Self-Design 自主设计
+
+- CAD设计与仿真：SolidWorks, Fusion 360, CATIA
+- 机械结构仿真与分析：ANSYS, ABAQUS
+- 快速原型制作：3D打印
+- 设计翼型，根据需求确定桨叶升力系数等参数
+- 根据需求和重量要求选择电机，电调，桨叶，电池等
+
+<section id="buy-as-need"></section>
+
+### 4.1.2 Buy-as-Needed 采购
+
+根据需求，参考[飞行评测](https://flyeval.com/paper/index.html)与[Fast Drone 250](https://github.com/ZJU-FAST-Lab/Fast-Drone-250)。
+
+<section id="dynamics"></section>
+
+## 4.2 Dynamics 动力学
+
+<section id="fluid mechanics"></section>
+
+### 4.2.1 Fluid Mechanics流体力学
+
+推荐听[余文胜](https://www.aero.sjtu.edu.cn/szdw/szml/27)老师的课。
+
+<section id="aerodynamics"></section>
+
+### 4.2.2 Aerodynamics空气动力学
+
+- 气动建模与分析：XFLR5（简单构型）
+
+<section id="flightdynamics"></section>
+
+### 4.2.3 Flight Dynamics飞行力学
+
+<section id="mechanics"></section>
+
+## 4.3 Mechanics 机械
+
+<section id="embedded"></section>
+
+## 4.4 Embedded 嵌入式
+
+<section id="stm32"></section>
+
+### 4.4.1 STM32
+
+<section id="nuttx"></section>
+
+### 4.4.2 NuttX
+
+实时操作系统，支持Pixhawk开源飞控平台
+
+<section id="Pixhawk"></section>
+
+### 4.4.3 Pixhawk
+
+<section id="other-flight-hardware"></section>
+
+### 4.4.4 Other Flight Hardware
+
+<section id="communication"></section>
+
+## 4.5 Communication 通信
+
+<section id="communication-basis"></section>
+
+### 4.5.1 Communication Basics 通信原理
+
+<section id="uart"></section>
+
+### 4.5.2 UART
+
+<section id="CAN"></section>
+
+### 4.5.3 CAN
+
+<section id="ROS"></section>
+
+### 4.5.4 ROS及功能包
+
+<section id="sensing"></section>
+
+## 4.6 Sensing/Perception 传感/感知
+
+<section id="sensors"></section>
+
+### 4.6.1 Sensors 传感器
+
+<section id="sensing/state-estimation"></section>
+
+### 4.6.2 State Estimation 状态估计
+
+<section id="tracking"></section>
+
+### 4.6.3 Tracking 目标跟踪
+
+<section id="control"></section>
+
+## 4.7 Control 控制
+
+<section id="control-basis"></section>
+
+### 4.7.1 Control Basics 控制原理
+
+<section id="control-methods"></section>
+
+### 4.7.2 Control Methods 控制方法
+
+<section id="control-architecture"></section>
+
+### 4.7.3 PX4-Autopilot PX4飞控
+
+<section id="planning"></section>
+
+## 4.8 Planning 规划
+
+推荐课程：[移动机器人运动规划](https://www.shenlanxueyuan.com/course/633?source=1)
+
+<section id="path-planning"></section>
+
+### 4.8.1 Path Planning 路径规划
+
+<section id="trajectory-planning"></section>
+
+### 4.8.2 Trajectory Planning 轨迹规划
+
+<section id="motion-planning"></section>
+
+### 4.8.3 Motion Planning 运动规划
+
+<section id="task-planning"></section>
+
+### 4.8.4 Task Planning 任务规划
+
+<section id="simulation"></section>
+
+## 4.9 Simulation 仿真
+
+<section id="gazebo"></section>
+
+### 4.9.1 Gazebo
+
+<section id="air-sim"></section>
+
+### 4.9.2 AirSim
+
+<section id="Flightmare"></section>
+
+### 4.9.3 Flightmare
+
+<section id="Rotors-simulation"></section>
+
+### 4.9.4 Rotors Simulation
+
+<section id="Issac-Sim"></section>
+
+### 4.9.5 Issac Sim
+
+<section id="Aerial-Gym"></section>
+
+### 4.9.6 Aerial Gym
+
+<section id="real-flight"></section>
+
+## 4.10 Real Flight 实机
+
+<section id="remote-control"></section>
+
+### 4.10.1 Remote Control 遥控
+
+<section id="QGC"></section>
+
+### 4.10.2 QGC
+
+<section id="flight-log"></section>
+
+### 4.10.3 Flight Log 飞行日志
+
+<section id="companion-computer"></section>
+
+### 4.10.4 Companion Computer 上位机
+
+<section id="nn-methods"></section>
+
+## 4.11 NN Methods learning方法
+
+<section id="reinforcement-learning"></section>
+
+### 4.11.1 Reinforcement Learning 强化学习
+
+<section id="generative-models"></section>
+
+### 4.11.2 Generative Models 生成模型
+
+<section id="LLM"></section>
+
+### 4.11.3 (M)LLMs （视觉等模态）大语言模型
 
 
 <section id="labs-home"></section>
@@ -321,7 +543,7 @@
 
 * [GRASP Laboratory UPenn](https://www.grasp.upenn.edu/), **[Vijay Kumar](https://www.kumarrobotics.org/)**
 * [HiPeRLab UC Berkeley](https://hiperlab.berkeley.edu/)
-* [AurLab CMU](https://theairlab.org/)
+* [AirLab CMU](https://theairlab.org/)
 * [LECAR Lab CMU](https://lecar-lab.github.io/)
 * [Russ Tedrake](https://locomotion.csail.mit.edu/russt.html)
 * [MIT Aerospace Controls Laboratory](https://acl.mit.edu/)
