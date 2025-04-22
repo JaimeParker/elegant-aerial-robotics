@@ -249,6 +249,13 @@
 自主飞行包含感知，规划与控制等方面的工作。如果粗糙地将其分类，可以分成基于优化的和基于学习的两大类。其中，基于优化的往往采用前端+后端的方法，而基于学习的则各式各样。
 
 近期的工作：
+* [Safety-assured high-speed navigation for MAVs](https://www.science.org/doi/10.1126/scirobotics.ado6187), Science Robotics 2025, MaRS Lab HKU
+* [Flying on Point Clouds with Reinforcement Learning](http://arxiv.org/abs/2503.00496), ArXiv 2025, Fast Lab ZJU, 对PCL做处理用RL
+* [Flying in Highly Dynamic Environments With  End-to-End Learning Approach](https://ieeexplore.ieee.org/abstract/document/10908845), RAL 2025, ArcLab HKU, 基于RL，可动态场景
+* [RESC: A Reinforcement Learning Based Search-to-Control Framework for Quadrotor Local Planning in Dense Environments](https://arxiv.org/abs/2408.00275), [[code]](https://github.com/JaimeParker/resc-pilot), SJTU, 基于RL的局部规划器，对ESDF做处理提取低维obstacle info
+* [Seeing Through Pixel Motion: Learning Obstacle Avoidance from  Optical Flow with One Camera](http://arxiv.org/abs/2411.04413), RAL 2025, SJTU, differential的idea，dual optical flow作为输入
+* [NavRL: Learning Safe Flight in Dynamic Environments](https://ieeexplore.ieee.org/document/10904341), [[code]](https://github.com/Zhefan-Xu/NavRL), [[video]](https://www.bilibili.com/video/BV1gsA9eTErz), RAL 2025, CMU，基于强化学习的自主飞行，控到速度，基于Issac Sim
+* [You Only Plan Once: A Learning-Based One-Stage Planner With Guidance Learning](https://ieeexplore.ieee.org/document/10528860/), [[code]](https://github.com/TJU-Aerial-Robotics/YOPO), [[video]](https://www.bilibili.com/video/BV15M4m1d7j5/), RAL 2024, TJU
 
 基于优化的工作：
 * [Minimum snap trajectory generation and control for quadrotors](https://ieeexplore.ieee.org/document/5980409), ICRA 2011, [Vijay Kumar](https://www.kumarrobotics.org/), UPenn，最早的轨迹规划工作之一，开山之作，提出四旋翼的微分平坦特性，可以用 x,y,z,yaw 及其导数来推导出12个量，因此轨迹多以x,y,z,yaw为主。
@@ -462,6 +469,9 @@
 <section id="Aerial-Gym"></section>
 
 ### 4.9.6 Aerial Gym
+
+* [AirGym](https://github.com/emNavi/AirGym)
+* [Aerial Gym Simulator](https://github.com/ntnu-arl/aerial_gym_simulator)
 
 <section id="real-flight"></section>
 
