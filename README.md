@@ -481,6 +481,28 @@ todo
 
 ### 4.7.3 PX4-Autopilot PX4飞控
 
+官方资源：
+
+* [github repo: PX4-Autopilot](https://github.com/PX4/PX4-Autopilot)
+* [discussion forum](https://discuss.px4.io/)
+* [PX4 Guide](https://docs.px4.io/main/en/)
+* [discord](https://discord.com/channels/1022170275984457759/1022185721450213396)
+
+推荐走issue和discord两条路，论坛基本没人看也没人回复。相比之下，discord更活跃一些，channels也比较全面。另外一定要多看doc，其实很多东西已经写在里面了（注意看对应版本的，会有很多参数的定义变化，比如`EKF2_AID_MASK`与`EV_CTRL`）。
+
+其他资源:
+
+* [github repo: potato77的笔记](https://github.com/potato77/Tech_Blog/tree/master)
+* [XTDrone](https://www.yuque.com/xtdrone/manual_cn)，全面的仿真与算法验证平台，非常适合上手；注意用的是二次开发的基于1.13版本的PX4
+* [PegasusSimulator](https://pegasussimulator.github.io/PegasusSimulator/), PX4与Issac Sim结合，但是目前只支持到MC
+* [AirGym](https://github.com/emNavi/AirGym), 基于Issac Gym的PX4+RL训练仿真
+
+PX4的版本不是越新越好，大家普遍用的还是1.13，尽管后续版本出了很多功能；但是如果你能接受1.13里混乱的mixer，这个版本的issue与debug信息应该是最多的。
+
+PX4的clone与编译可以参考[make px4](https://jaimeparker.github.io/tech/Make-PX4/)。
+
+如果只是对控制算法或某个模块算法进行改进，那么你需要c++的继承派生虚函数等知识（写的很优雅，其实叫自动驾驶仪，飞控窄了）；如果是对飞控的整体架构进行改进，那么你需要了解PX4的整体架构，尤其是模块间的通信机制。
+
 <section id="planning"></section>
 
 ## 4.8 Planning 规划
@@ -490,6 +512,8 @@ todo
 <section id="path-planning"></section>
 
 ### 4.8.1 Path Planning 路径规划
+
+一定要区分path和trajectory，path是空间上依次排列的点集，而trajectory是时间参数化后的，时间的函数。
 
 <section id="trajectory-planning"></section>
 
@@ -549,6 +573,16 @@ todo
 <section id="flight-log"></section>
 
 ### 4.10.3 Flight Log 飞行日志
+
+什么？你不看飞行日志？
+
+PX4官网有专门的介绍：[Flight Log Analysis](https://docs.px4.io/main/en/log/flight_log_analysis.html)
+
+在这些工具之中，我强推[Plotjuggler](https://docs.px4.io/main/en/log/flight_log_analysis.html)(Grazie Davide Faconti!)：
+
+* 跨平台，linux上体验更好，可以和ros联动，你会爱上他的republish功能的
+* 每次打开都有奇奇怪怪的图
+* 还有教程，支持插件，[github](https://github.com/facontidavide/PlotJuggler)
 
 <section id="companion-computer"></section>
 
