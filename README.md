@@ -266,6 +266,7 @@
 近期的工作：
 * [Safety-assured high-speed navigation for MAVs](https://www.science.org/doi/10.1126/scirobotics.ado6187), Science Robotics 2025, MaRS Lab HKU
 * [Flying on Point Clouds with Reinforcement Learning](http://arxiv.org/abs/2503.00496), ArXiv 2025, Fast Lab ZJU, 对PCL做处理用RL
+* [MAVRL: Learn to Fly in Cluttered Environments With Varying Speed](https://ieeexplore.ieee.org/document/10816139), MAVLab 2025 TUDelft, varying speed（以致扩展到accel等参数）是一个很重要的点，记得高飞老师也有几篇类似的工作
 * [Flying in Highly Dynamic Environments With  End-to-End Learning Approach](https://ieeexplore.ieee.org/abstract/document/10908845), RAL 2025, ArcLab HKU, 基于RL，可动态场景
 * [RESC: A Reinforcement Learning Based Search-to-Control Framework for Quadrotor Local Planning in Dense Environments](https://arxiv.org/abs/2408.00275), [[code]](https://github.com/JaimeParker/resc-pilot), SJTU, 基于RL的局部规划器，对ESDF做处理提取低维obstacle info
 * [Seeing Through Pixel Motion: Learning Obstacle Avoidance from  Optical Flow with One Camera](http://arxiv.org/abs/2411.04413), RAL 2025, SJTU, differential的idea，dual optical flow作为输入
@@ -618,6 +619,7 @@ todo
 
 * [ETH ASL](https://asl.ethz.ch/)
 * [RPG UZH](https://rpg.ifi.uzh.ch/)
+* [MAVLab TUDelft](https://mavlab.tudelft.nl/)
 * [V4RL ETH](https://www.v4rl.com/)
 
 
