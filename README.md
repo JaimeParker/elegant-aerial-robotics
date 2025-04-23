@@ -140,6 +140,19 @@
 
 # 1. Introduction
 
+空中机器人是一类具有飞行能力的机器人，其学习与研究涉及到多个学科，因此从0到1的学习曲线较长。
+
+为了方便大家学习与研究空中机器人，我们整理了一个空中机器人学习的知识体系，欢迎大家补充与交流。
+
+**如何贡献(非repo协作者)**:
+
+* fork本项目，创建你自己的分支branch
+* 在你的分支上进行修改，别忘了把贡献及你想留下的信息放到[Contributors](Contributors.md)中
+* add, commit, push
+* 创建一个pull request到主分支
+
+对于repo的协作者，**欢迎直接在主分支上进行修改**。
+
 <section id="generalized-aerial-robots"></section>
 
 # 2. Generalized Aerial Robots 广义空中机器人
@@ -212,6 +225,8 @@
 * [Past, Present, and Future of Aerial Robotic Manipulators](https://ieeexplore.ieee.org/document/9462539), TRO 2022, Antonio Franchi
 * [AeCoM: An Aerial Continuum Manipulator With  IMU-Based Kinematic Modeling and  Tendon-Slacking Prevention](https://ieeexplore.ieee.org/document/10081306), TSMC 2023, ArcLab HKU, 灵巧臂
 * [A dexterous and compliant aerial continuum manipulator for cluttered and constrained environments](https://www.nature.com/articles/s41467-024-55157-2), Nature 2025, ArcLab 2025, 灵巧臂“会飞的象鼻”
+* [A Compact Aerial Manipulator: Design and Control for Dexterous Operations](https://link.springer.com/article/10.1007/s10846-024-02090-7), JIRS 2024, BUAA 郭雷组，[Zeshuai Chen](https://github.com/zschen879), [Liu_Qianyuan [bilibili]](https://space.bilibili.com/21343190)，自研飞控，灵巧操作
+* [Millimeter-Level Pick and Peg-in-Hole Task Achieved by Aerial Manipulator](https://ieeexplore.ieee.org/abstract/document/10339889), TRO 2023, BUAA 郭雷组
 
 
 <section id="vtol"></section>
@@ -268,29 +283,68 @@
 
 ## 3.2 Racing 竞速/大机动飞行
 
+我了解到的主要是 Prof. [Davide](https://rpg.ifi.uzh.ch/people_scaramuzza.html) 和 [高飞](http://zju-fast.com/research-group/fei-gao/)老师的工作：
+
+Davide 的 Agile flight 和 Racing 有点交叉，主要基于优化，RL及differential做：
+
+* [rpg research: Agile Drone Flight](https://rpg.ifi.uzh.ch/aggressive_flight.html) and [rpg research: Drone Racing](https://rpg.ifi.uzh.ch/research_drone_racing.html)，可以直接关注他们的research发布页，也可以关注 [publicaitons](https://rpg.ifi.uzh.ch/publications.html) 和 [Davide 的 Google Scholar](https://scholar.google.com/citations?user=SC9wV2kAAAAJ&hl=en)。
+* [Environment as Policy: Learning to Race in Unseen Tracks](https://rpg.ifi.uzh.ch/env_as_policy/), ICRA 2025, one single racing policy efficiently learns to race in diverse and challenging tracks
+* [Student-Informed Teacher Training](https://rpg.ifi.uzh.ch/sitt/), ICLR 2025 spotlight, 简称ST训练，与BC&DAgger对比，虽然在racing上没那么多实验涉及，但很有意思的工作
+* [Dream to Fly: Model-Based Reinforcement Learning for Vision-Based Drone Flight](http://arxiv.org/abs/2501.14377), vision+RL
+* 中间的一些工作这里不详细介绍了，直接看[rpg research: Agile Drone FLight](https://rpg.ifi.uzh.ch/aggressive_flight.html)，比如AC-MPC，MPCC++等，都是很好的工作，racinger们可以直接参考。
+* [Autonomous Drone Racing: A Survey](https://ieeexplore.ieee.org/document/10530312), TRO 2024, racing survey
+* [Reaching the limit in autonomous racing: Optimal control versus reinforcement learning](https://www.science.org/doi/10.1126/scirobotics.adg1462), Science Robotics 2023, 不知道有多少人是因为[Yunlong](https://yunlong-song.com/index.html)的这篇SR开始关注RL/learning与racing/agile flight的结合，这篇文章中论证的a better goal是很多面临“为什么要使用RL”时可以回答的一个问题。
+* [Champion-level drone racing using deep reinforcement learning](https://www.nature.com/articles/s41586-023-06419-4)，以及这篇被广大公众号/自媒体转载的Nature文章
+* [Learning Perception-Aware Agile Flight in Cluttered Environments](https://ieeexplore.ieee.org/abstract/document/10160563), 但其实 Yunlong 还做了很多其他的工作，在类似任务下，[Learning Minimum-Time Flight in Cluttered Environments](https://ieeexplore.ieee.org/document/9794627)
+* [Learning High-Speed Flight in the Wild](https://rpg.ifi.uzh.ch/AgileAutonomy.html)
+
+高飞老师则是model-based，到与learning结合：
+
+* [Unlocking aerobatic potential of quadcopters: Autonomous freestyle flight generation and execution](https://www.science.org/doi/10.1126/scirobotics.adp9905), Science Robotics 2025, [[bilibili]](https://www.bilibili.com/video/BV1WXouYmEaW/)，先拿这篇SR镇楼，三年之作
+* Automatic Generation of Aerobatic Flight in Complex Environments via Diffusion Models, [[bilibili]](https://www.bilibili.com/video/BV1sj5yznEmN/), 也开始diffusion了（diffusion policy+drone有很多做了的和在做的工作）
+* [Fast-Racing: An Open-Source Strong Baseline for SE(3) Planning in Autonomous Drone Racing](https://ieeexplore.ieee.org/document/9543598), RAL 2021, [[bilibili]](https://www.bilibili.com/video/BV1sq4y1779e/)
+
+
 <section id="flight-control"></section>
 
 ## 3.3 Flight Control 飞行控制
+
+todo
 
 <section id="exploration"></section>
 
 ## 3.4 Exploration 探索
 
+* [RACER: Rapid Collaborative Exploration With a Decentralized Multi-UAV System](https://ieeexplore.ieee.org/document/10038280), [[code]](https://github.com/SYSU-STAR/RACER), TRO 2023, 周指导也一直在做这方面的工作
+
 <section id="swarm"></section>
 
 ## 3.5 Swarm 集群
+
+涉及到编队，协同飞行等：
+
+* [Swarm of micro flying robots in the wild](https://www.science.org/doi/10.1126/scirobotics.abm5954),Science Robotics 2023, Fast Lab ZJU, 即使你不做无人机，可能都听说过这篇
+* [Primitive-Swarm: An Ultra-lightweight and Scalable Planner for Large-scale Aerial Swarms](https://arxiv.org/abs/2502.16887), TRO 2025, [[bilibili]](https://www.bilibili.com/video/BV1Q4PNeeE7D/)
+* [EGO-Swarm: A Fully Autonomous and Decentralized Quadrotor Swarm System in Cluttered Environments](https://ieeexplore.ieee.org/document/9561902), ICRA 2021, [[bilibili]](https://www.bilibili.com/video/BV1Nt4y1e7KD/)
+* [Distributed Swarm Trajectory Optimization for Formation Flight in Dense](https://ieeexplore.ieee.org/document/9812050), ICRA 2022, [[bilibili]](https://www.bilibili.com/video/BV1qv41137Si)
 
 <section id="state-estimation"></section>
 
 ## 3.6 State Estimation 状态估计
 
+todo
+
 <section id="aerial-manipulation"></section>
 
 ## 3.7 Aerial Manipulation 空中操作
 
+todo
+
 <section id="novel-design"></section>
 
 ## 3.8 Novel Design 新构型设计
+
+todo
 
 
 
