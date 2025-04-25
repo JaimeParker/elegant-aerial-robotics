@@ -231,7 +231,7 @@
 * [Past, Present, and Future of Aerial Robotic Manipulators](https://ieeexplore.ieee.org/document/9462539), TRO 2022, Antonio Franchi
 * [AeCoM: An Aerial Continuum Manipulator With  IMU-Based Kinematic Modeling and  Tendon-Slacking Prevention](https://ieeexplore.ieee.org/document/10081306), TSMC 2023, ArcLab HKU, 灵巧臂
 * [A dexterous and compliant aerial continuum manipulator for cluttered and constrained environments](https://www.nature.com/articles/s41467-024-55157-2), Nature 2025, ArcLab 2025, 灵巧臂“会飞的象鼻”
-* [A Compact Aerial Manipulator: Design and Control for Dexterous Operations](https://link.springer.com/article/10.1007/s10846-024-02090-7), JIRS 2024, BUAA 郭雷组，[Zeshuai Chen](https://github.com/zschen879), [Liu_Qianyuan [bilibili]](https://space.bilibili.com/21343190)，自研飞控，灵巧操作
+* [A Compact Aerial Manipulator: Design and Control for Dexterous Operations](https://link.springer.com/article/10.1007/s10846-024-02090-7), JIRS 2024, BUAA 郭雷组, [Liu_Qianyuan [bilibili]](https://space.bilibili.com/21343190)，[Zeshuai Chen](https://scholar.google.com.hk/citations?user=p9G9KU8AAAAJ&hl=zh-CN&oi=ao)，自研飞控，manipulator设计，抗扰控制，灵巧操作
 * [Millimeter-Level Pick and Peg-in-Hole Task Achieved by Aerial Manipulator](https://ieeexplore.ieee.org/abstract/document/10339889), TRO 2023, BUAA 郭雷组
 
 
