@@ -10,3 +10,4 @@
 ## Contribution
 
 * Zhaohong Liu, 2025-04-23, 初始化仓库
+* Yizhu Zhang, 2025-04-25, 添加3.6状态估计的SLAM部分

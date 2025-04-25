@@ -79,6 +79,7 @@
                         <li><a href="#control-basis">4.7.1 Control Basics 控制原理</a></li>
                         <li><a href="#control-methods">4.7.2 Control Methods 控制方法</a></li>
                         <li><a href="#control-architecture">4.7.3 PX4-Autopilot PX4飞控</a></li>
+                        <li><a href="#optimal-control-optimization">4.7.4 Optimal Control and Optimization 最优控制与优化</a></li>
                     </ul>
                 </li>
                 <li><a href="#planning">4.8 Planning 规划</a>
@@ -322,6 +323,8 @@ todo
 
 ## 3.4 Exploration 探索
 
+todo
+
 * [RACER: Rapid Collaborative Exploration With a Decentralized Multi-UAV System](https://ieeexplore.ieee.org/document/10038280), [[code]](https://github.com/SYSU-STAR/RACER), TRO 2023, 周指导也一直在做这方面的工作
 
 <section id="swarm"></section>
@@ -355,6 +358,8 @@ todo
 - 多传感器融合（激光雷达、视觉图像、IMU、GPS等多种传感器融合）
   - [Qin, T., Li, P., & Shen, S. (2018). *VINS-Mono: A Robust and Versatile Monocular Visual-Inertial State Estimator*. IEEE Transactions on Robotics](https://ieeexplore.ieee.org/abstract/document/8421746/) 视觉信息与IMU融合的VINS系列，轻量级速度快。
   - [Lin, Jiarong, and Fu Zhang. "R 3 LIVE: A Robust, Real-time, RGB-colored, LiDAR-Inertial-Visual tightly-coupled state Estimation and mapping package." *2022 International Conference on Robotics and Automation (ICRA)*. IEEE, 2022.](https://ieeexplore.ieee.org/abstract/document/9811935/) 融合激光雷达、视觉和IMU，实时构建带颜色的稠密地图。
+  - [ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual–Inertial, and Multimap SLAM](https://ieeexplore.ieee.org/document/9440682)，TRO 2020, 支持多传感器融合，并且多地图
+  - [GVINS: Tightly Coupled GNSS–Visual–Inertial Fusion for Smooth and Consistent State Estimation](https://ieeexplore.ieee.org/document/9667780), TRO 2022, HKUST Aerial Robotics Group, GNSS + VINS
 
 <section id="aerial-manipulation"></section>
 
@@ -517,6 +522,14 @@ PX4的版本不是越新越好，大家普遍用的还是1.13，尽管后续版�
 PX4的clone与编译可以参考[make px4](https://jaimeparker.github.io/tech/Make-PX4/)。
 
 如果只是对控制算法或某个模块算法进行改进，那么你需要c++的继承派生虚函数等知识（写的很优雅，其实叫自动驾驶仪，飞控窄了）；如果是对飞控的整体架构进行改进，那么你需要了解PX4的整体架构，尤其是模块间的通信机制。
+
+<section id="optimal-control-optimization"></section>
+
+### 4.7.4 Optimal Control and Optimization 最优控制与优化
+
+todo：交给聪聪（编辑后把这删了）
+
+最优控制说到底是一个优化问题，拿到解析解或数值解（数值优化方法）。另外机器人学的数值优化推荐看汪博在深蓝学院讲的。
 
 <section id="planning"></section>
 
