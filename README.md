@@ -339,7 +339,22 @@ todo
 
 ## 3.6 State Estimation 状态估计
 
-todo
+空中机器人的状态估计问题在于通过传感器观测数据和控制输入，在噪声干扰下推断机器人位姿、环境特征位置等。SLAM技术中，机器人不仅需要实时定位自身位姿，还需同步构建环境地图。
+
+根据传感器类型来划分：
+
+- 激光SLAM（激光雷达，有机械式和固态式激光雷达）
+  - [Zhang, J., & Singh, S. (2014). *LOAM: Lidar Odometry and Mapping in Real-time*. Robotics: Science and Systems (RSS)](https://www.ri.cmu.edu/pub_files/2014/7/Ji_LidarMapping_RSS2014_v8.pdf) 经典的机械式激光雷达算法，将激光雷达里程计与建图分离的框架。
+  - [Shan, Tixiao, and Brendan Englot. "Lego-loam: Lightweight and ground-optimized lidar odometry and mapping on variable terrain." *2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*. IEEE, 2018.](https://ieeexplore.ieee.org/abstract/document/8594299)LOAM基础上增加了优化特征匹配和引入闭环检测。
+  - [Shan, Tixiao, et al. "Lio-sam: Tightly-coupled lidar inertial odometry via smoothing and mapping." *2020 IEEE/RSJ international conference on intelligent robots and systems (IROS)*. IEEE, 2020.](https://ieeexplore.ieee.org/abstract/document/9341176/)结合激光雷达与IMU的紧耦合方法，通过因子图优化提升大规模场景的鲁棒性。
+  - [Xu, Wei, and Fu Zhang. "Fast-lio: A fast, robust lidar-inertial odometry package by tightly-coupled iterated kalman filter." *IEEE Robotics and Automation Letters* 6.2 (2021): 3317-3324.](https://ieeexplore.ieee.org/abstract/document/9372856/) 固态式激光雷达的框架，成本低，速度快。
+- 视觉SLAM（单目针孔相机、双目相机、RGB-D深度相机；同时根据方法还可以划分为特征点法，直接法等）
+  - [Mur-Artal, R., & Tardós, J. D. (2016). *ORB-SLAM2: An Open-Source SLAM System for Monocular, Stereo and RGB-D Cameras*. IEEE Transactions on Robotics](https://ieeexplore.ieee.org/abstract/document/7946260) ORB-SLAM经典框架，较高的定位精度和框架。此外，还包含了双目、RGB-D相机多重模式。
+  - [Engel, Jakob, Thomas Schöps, and Daniel Cremers. "LSD-SLAM: Large-scale direct monocular SLAM." *European conference on computer vision*. Cham: Springer International Publishing, 2014.](https://link.springer.com/chapter/10.1007/978-3-319-10605-2_54) 直接法，支持单目相机的半稠密建图。
+  - [Forster, Christian, Matia Pizzoli, and Davide Scaramuzza. "SVO: Fast semi-direct monocular visual odometry." *2014 IEEE international conference on robotics and automation (ICRA)*. IEEE, 2014.](https://ieeexplore.ieee.org/abstract/document/6906584) 半直接法，利用稀疏特征点初始化，再通过直接法优化位姿。
+- 多传感器融合（激光雷达、视觉图像、IMU、GPS等多种传感器融合）
+  - [Qin, T., Li, P., & Shen, S. (2018). *VINS-Mono: A Robust and Versatile Monocular Visual-Inertial State Estimator*. IEEE Transactions on Robotics](https://ieeexplore.ieee.org/abstract/document/8421746/) 视觉信息与IMU融合的VINS系列，轻量级速度快。
+  - [Lin, Jiarong, and Fu Zhang. "R 3 LIVE: A Robust, Real-time, RGB-colored, LiDAR-Inertial-Visual tightly-coupled state Estimation and mapping package." *2022 International Conference on Robotics and Automation (ICRA)*. IEEE, 2022.](https://ieeexplore.ieee.org/abstract/document/9811935/) 融合激光雷达、视觉和IMU，实时构建带颜色的稠密地图。
 
 <section id="aerial-manipulation"></section>
 
