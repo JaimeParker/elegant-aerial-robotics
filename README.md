@@ -527,7 +527,36 @@ PX4的clone与编译可以参考[make px4](https://jaimeparker.github.io/tech/Ma
 
 ### 4.7.4 Optimal Control and Optimization 最优控制与优化
 
-todo：交给聪聪（编辑后把这删了）
+(来自于科研时长两年半的硕士升博士生，主要研究中包含间接法最优控制）
+
+#### 4.7.4.1 Introduction 简要概述
+
+最优控制方法主要分成间接法最优控制和直接法最优控制。间接法和直接法最主要的区别我认为是是否引入协态变量以及是否把各个时间点离散出来（直接法中的单次打靶法除外），具体来说直接法会需要把初始时刻、终端时刻、以及中间部分时间节点的状态（有时候也会把控制量拎出来）结合起来形成一个巨大的状态矩阵。除此之外，最优控制问题和一般的优化问题的主要区别在于，最优控制问题需要考虑动力学方程或者是运动学方程，它是作为一个全时间段上的约束存在的。
+
+#### 4.7.4.2 Indirect Method 间接法
+
+推荐书籍：飞行器最优控制 —— 西工大出版社、Optimal Control with Engineering Application（Hans.P.Geering）
+
+* 间接法最优控制主要是以变分法（Variation）为基础，庞特里亚金极大值（也有说是极小值的）原理为理论指导的最优控制方法，优势在于其得出的解一定符合一阶最优性条件（即一定是极值点），缺点在于协态初值需要猜，而且全局最优解和这个猜的初值有关（即不一定是最值点）。
+* 具体推导可以看《飞行器最优控制》（毕竟是中文版，遇到不懂的再看后面那本，前者基本上讲的很清楚），引入了协态量，从我的视角来看它就是并列于状态量的一个概念（所以英文叫costate），然后围绕状态量和协态量有一个微分方程组，即一个augmented的动力学方程。除此之外，围绕一阶最优性条件会导出很多关于协态的边界条件（称为横截条件transversal condition），再加上原本状态量的约束，就构成了所有的边界条件。另外，控制量可以基于一阶最优性条件，使得哈密顿函数取到极大值来得到（一般存在解析解，是可以用协态和状态表达的）。如此以后，就成功地把求最优的问题改写成了一个普通的求初始值（初始的协态和状态，需要猜）的问题。另外，如果有等式形式的初始和终端状态约束，比如x+y=R（R为常数）这种，《飞行器最优控制》这本书也有提到，能够很方便的引入刚刚转化好的方程中。
+* 当整个优化过程有全时间域的路径约束（比如x>R）这种，可以看第二本书，这本书的第二章有具体推导，可以看一下。
+
+#### 4.7.4.3 Direct Method 直接法
+
+* 直接法的话我了解的不是很多，主要是跟着学校的课程学的
+* [直接法的分类](https://blog.csdn.net/Ruins_LEE/article/details/125681168)，对直接法的各个类别有非常详细的分类，肯定比我厉害。
+
+#### 4.7.4.4 常见的优化算法
+
+另外我想在这补充一些常见的优化算法以及用这些算法的C++和Matlab库，虽然现在的包啊库啊整合的都挺好，但是有一些底层的原理如果有感兴趣的也可以自己去看一看。
+
+* [Levenberg-Marquardt 算法](https://blog.csdn.net/weixin_45498383/article/details/143435177)：用于Minpack（C++）、Ceres Solver（C++）、fsolve（Matlab）
+* [Powell的dogleg方法](https://blog.csdn.net/woyaomaishu2/article/details/135686350?spm=1001.2014.3001.5501)：用于Minpack（C++）、fsolve（Matlab）
+* [Nelder-Mead单纯形法](https://blog.csdn.net/weixin_52732185/article/details/129105796)：用于OptimLib（C++）、fminsearch（Matlab）
+* [Trust-Region Reflective方法]()：用于Ceres Solver（C++）、fsolve（Matlab）、fminunc（Matlab）、fmincon（Matlab）
+* [BFGS拟牛顿法,L-BFGS拟牛顿法（省内存）等各种拟牛顿法](https://blog.csdn.net/songbinxu/article/details/79677948)：用于NLopt（C++）、OptimLib（C++）、dlib（C++）
+
+当然，这些只是目前我看的一些，只是之前科研的时候突然感兴趣简单搜索了一下，肯定还有很多别的算法，感兴趣的话可以在这里补充。
 
 最优控制说到底是一个优化问题，拿到解析解或数值解（数值优化方法）。另外机器人学的数值优化推荐看汪博在深蓝学院讲的。
 
