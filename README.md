@@ -577,7 +577,36 @@ todo：交给聪聪（编辑后把这删了）
 
 <section id="Issac-Sim"></section>
 
-### 4.9.5 Issac Sim
+### 4.9.5 Isaac Sim
+
+- [IsaacSim](https://github.com/isaac-sim)
+- [IsaacSim Documentation](https://docs.isaacsim.omniverse.nvidia.com/latest/index.html)
+
+#### 4.9.5.1 安装配置
+- 官方教程：
+  - [Installation](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/index.html)
+  - 这个安装教程看着有点麻烦，其实如果主要是使用IsaacLab进行训练，可以直接看isaaclab documentation里面的isaacsim安装部分，简单明了。
+- 注意事项：
+  - 建议下载asset在本地部署
+      - [Setup Tips](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_faq.html)
+  - 第一次运行isaacsim一般都会卡住然后显示isaacsim no responding，一般就是等一段时间或者重新启动几次就会好。
+
+#### 4.9.5.2 IsaacLab
+- Isaac Lab 是基于 NVIDIA Isaac Sim 构建的一个开源机器人学习与控制研究平台，主要用于做RL训练。
+  - [IsaacLab](https://github.com/isaac-sim/IsaacLab)
+  - [IsaacLab Documentation](https://isaac-sim.github.io/IsaacLab/main/index.html)
+- 安装：
+  - [Local Installation](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html)
+- 环境：
+  - [Available Environments](https://isaac-sim.github.io/IsaacLab/main/source/overview/environments.html)
+  - 环境类型：
+    - Manager-based: 模块化、可扩展、结构化的工作流，适合构建复杂环境、多个组件协同工作的仿真任务。
+    - Direct Workflow: 更加灵活，从底层对环境进行定义。一般自定义环境用direct workflow较多，但是缺点是不便于维护和协作，不适合做大项目。
+
+#### 4.9.5.3 相关资源（非官方）
+- [Attic IsaacSim-IsaacLab安装注意事项](https://osaerialrobot.top/2025/04/30/IssacSim-IsaacLab/)
+- [isaac-sim/IsaacLab | DeepWiki](https://deepwiki.com/isaac-sim/IsaacLab)
+
 
 <section id="Aerial-Gym"></section>
 
