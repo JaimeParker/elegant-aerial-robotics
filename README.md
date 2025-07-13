@@ -32,7 +32,7 @@
                 <li><a href="#swarm">3.5 Swarm 集群</a></li>
                 <li><a href="#state-estimation">3.6 State Estimation 状态估计</a></li>
                 <li><a href="#aerial-manipulation">3.7 Aerial Manipulation 空中操作</a></li>
-                <li><a href="#novel-design">3.8 Novel Design 新构型设计</a></li>
+                <li><a href="#novel-design">3.8 Novel/Morphing Design 新构型设计/变形无人机</a></li>
             </ul>
         </li>
         <li><a href="#tech-stack">4. Tech stack 技术栈</a>
@@ -365,11 +365,11 @@ todo
 
 ## 3.7 Aerial Manipulation 空中操作
 
-todo
+* [Whole-Body Integrated Motion Planning for Aerial Manipulators](https://arxiv.org/abs/2501.06493)
 
 <section id="novel-design"></section>
 
-## 3.8 Novel Design 新构型设计
+## 3.8 Novel/Morphing Design 新构型设计/变形无人机
 
 todo
 
@@ -712,6 +712,8 @@ PX4官网有专门的介绍：[Flight Log Analysis](https://docs.px4.io/main/en/
 * [STAR SUSTech](https://robotics-star.com/)
 * [田栢苓 TJU](https://faculty.tju.edu.cn/116115/zh_CN/index.htm)
 * [WINDY Lab](https://shiyuzhao.westlake.edu.cn/)
+* [吕熙敏 SYSU](https://scholar.google.com/citations?user=obB-btEAAAAJ&hl=en)
+* [RAPID Lab SYSU](http://lab.sysu-robotics.com/index.html)
 
 
 <section id="hongkong"></section>
