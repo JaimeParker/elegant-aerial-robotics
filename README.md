@@ -697,6 +697,8 @@ PX4官网有专门的介绍：[Flight Log Analysis](https://docs.px4.io/main/en/
 
 <section id="domestic"></section>
 
+注：所有顺序无意义 
+
 ## 5.1 Domestic(PRC) 国内
 
 <section id="chinamainland"></section>
@@ -714,6 +716,12 @@ PX4官网有专门的介绍：[Flight Log Analysis](https://docs.px4.io/main/en/
 * [WINDY Lab](https://shiyuzhao.westlake.edu.cn/)
 * [吕熙敏 SYSU](https://scholar.google.com/citations?user=obB-btEAAAAJ&hl=en)
 * [RAPID Lab SYSU](http://lab.sysu-robotics.com/index.html)
+* [NICSefc THU](https://nicsefc.ee.tsinghua.edu.cn/) MARL小组，于超老师，xhs id 94742231017
+* [NPU-IUS-Lab](https://space.bilibili.com/1379550426?spm_id_from=333.1387.follow.user_card.click)
+* [王耀南 院士](https://eeit.hnu.edu.cn/info/1277/4490.htm)
+* [夏元清](https://pure.bit.edu.cn/zh/persons/yuanqing-xia)
+* [HNU-CAT](https://space.bilibili.com/3546815712462924?spm_id_from=333.1387.follow.user_card.click)
+* [孟伟](https://space.bilibili.com/403212208?spm_id_from=333.1387.follow.user_card.click)
 
 
 <section id="hongkong"></section>
@@ -758,4 +766,6 @@ PX4官网有专门的介绍：[Flight Log Analysis](https://docs.px4.io/main/en/
 * [Dragon Lab 东京大学](http://www.dragon.t.u-tokyo.ac.jp/)
 * [谢立华 NTU](https://personal.ntu.edu.sg/elhxie/)
 * [Unmanned Systems Research Group CUHK&NUS](http://www.mae.cuhk.edu.hk/~usr/index.html)
+* [AIRS NTU](https://ntu-aris.github.io/), [bilibili](https://space.bilibili.com/313085009?spm_id_from=333.1387.follow.user_card.click)
+* [ICG NTU](https://sites.google.com/view/mir-feroskhan/about)
 
