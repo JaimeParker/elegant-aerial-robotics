@@ -271,14 +271,22 @@
 自主飞行包含感知，规划与控制等方面的工作。如果粗糙地将其分类，可以分成基于优化的和基于学习的两大类。其中，基于优化的往往采用前端+后端的方法，而基于学习的则各式各样。
 
 近期的工作：
+* [Flying in Clutter on Monocular RGB by Learning in 3D Radiance Fields with Domain Adaptation](https://arxiv.org/abs/2512.17349), RAL 2026, Fast Lab ZJU, monocular RGB + 3DGS + domain adaptation，实现复杂环境中的zero-shot sim-to-real飞行
+* [High-Speed Vision-Based Flight in Clutter With Safety-Shielded Reinforcement Learning](https://ieeexplore.ieee.org/document/11563604/), RAL 2026, Fast Lab ZJU, end-to-end RL结合model-based safety filter，在高速飞行中兼顾性能与安全
+* [DPNet: Efficient Dead-End Prediction and Avoidance for Vision-Based UAV Navigation](https://arxiv.org/abs/2608.16640), ArXiv 2026, Fast Lab ZJU, 基于RGB-D预测dead-end的方向与距离，并通过trajectory pruning实现主动避障
+* [Neural-Primitive: An Efficient End-to-end Local Planner with Primitive-based Imitation Learning for Autonomous Flight](https://arxiv.org/abs/2608.20948), ArXiv 2026, Fast Lab ZJU, 基于trajectory primitive与imitation learning直接输出多项式局部轨迹，降低在线规划开销
+* [FlowPilot: Real-Time World-Action Modeling for Agile UAV Navigation](https://arxiv.org/abs/2608.00635), ArXiv 2026, 基于depth observation联合建模未来场景与可执行轨迹，实现实时敏捷局部导航
+* [UAVs Meet Embodied Intelligence: Bridging Human Intents and Flying Dynamics Via Harnessing Physical-Digital AI Agents](https://arxiv.org/abs/2609.18326), ArXiv 2026, 从human intent、perception、planning、action与flight dynamics角度总结UAV embodied intelligence
 * [Safety-assured high-speed navigation for MAVs](https://www.science.org/doi/10.1126/scirobotics.ado6187), Science Robotics 2025, MaRS Lab HKU
 * [Flying on Point Clouds with Reinforcement Learning](http://arxiv.org/abs/2503.00496), ArXiv 2025, Fast Lab ZJU, 对PCL做处理用RL
 * [MAVRL: Learn to Fly in Cluttered Environments With Varying Speed](https://ieeexplore.ieee.org/document/10816139), MAVLab 2025 TUDelft, varying speed（以致扩展到accel等参数）是一个很重要的点，记得高飞老师也有几篇类似的工作
-* [Flying in Highly Dynamic Environments With  End-to-End Learning Approach](https://ieeexplore.ieee.org/abstract/document/10908845), RAL 2025, ArcLab HKU, 基于RL，可动态场景
+* [Flying in Highly Dynamic Environments With End-to-End Learning Approach](https://ieeexplore.ieee.org/abstract/document/10908845), RAL 2025, ArcLab HKU, 基于RL，可动态场景
 * [RESC: A Reinforcement Learning Based Search-to-Control Framework for Quadrotor Local Planning in Dense Environments](https://arxiv.org/abs/2408.00275), [[code]](https://github.com/JaimeParker/resc-pilot), SJTU, 基于RL的局部规划器，对ESDF做处理提取低维obstacle info
-* [Seeing Through Pixel Motion: Learning Obstacle Avoidance from  Optical Flow with One Camera](http://arxiv.org/abs/2411.04413), RAL 2025, SJTU, differential的idea，dual optical flow作为输入
+* [Seeing Through Pixel Motion: Learning Obstacle Avoidance from Optical Flow with One Camera](http://arxiv.org/abs/2411.04413), RAL 2025, SJTU, differential的idea，dual optical flow作为输入
 * [NavRL: Learning Safe Flight in Dynamic Environments](https://ieeexplore.ieee.org/document/10904341), [[code]](https://github.com/Zhefan-Xu/NavRL), [[video]](https://www.bilibili.com/video/BV1gsA9eTErz), RAL 2025, CMU，基于强化学习的自主飞行，控到速度，基于Issac Sim
+* [Agile in the Face of Delay: Asynchronous End-to-End Learning for Real-World Aerial Navigation](https://arxiv.org/abs/2509.13816), ArXiv 2025, 采用asynchronous perception-control架构和temporal encoding处理真实飞行中的感知延迟
 * [You Only Plan Once: A Learning-Based One-Stage Planner With Guidance Learning](https://ieeexplore.ieee.org/document/10528860/), [[code]](https://github.com/TJU-Aerial-Robotics/YOPO), [[video]](https://www.bilibili.com/video/BV15M4m1d7j5/), RAL 2024, TJU
+* [Learning Speed Adaptation for Flight in Clutter](https://arxiv.org/abs/2403.04586), RAL 2024, Fast Lab ZJU, 利用学习策略根据环境复杂度自适应调整飞行速度，并与model-based trajectory generation结合
 
 基于优化的工作：
 * [Minimum snap trajectory generation and control for quadrotors](https://ieeexplore.ieee.org/document/5980409), ICRA 2011, [Vijay Kumar](https://www.kumarrobotics.org/), UPenn，最早的轨迹规划工作之一，开山之作，提出四旋翼的微分平坦特性，可以用 x,y,z,yaw 及其导数来推导出12个量，因此轨迹多以x,y,z,yaw为主。
@@ -286,6 +294,9 @@
 * 可以选择性地跳过一些基于gradient和Safe Flight Corridor的工作，直接看第一个标准优雅的规划器Fast-Planner的第一版，[Robust and Efficient Quadrotor Trajectory Generation for Fast Autonomous Flight](https://ieeexplore.ieee.org/document/8758904/), RAL 2019, HKUST Aerial Robotics Group；之后又有了第二、三版文章，分别聚焦于topological planning和perception-aware，[Robust Real-time UAV Replanning Using Guided Gradient-based Optimization and Topological Paths](https://ieeexplore.ieee.org/document/9196996/), ICRA 2020; [RAPTOR: Robust and Perception-Aware Trajectory Replanning for Quadrotor Fast Flight](https://ieeexplore.ieee.org/document/9422918/), TRO 2021
 * ESDF free的[EGO-Planner: An ESDF-Free Gradient-Based Local Planner for Quadrotors](https://ieeexplore.ieee.org/document/9309347/), RAL 2021
 * 最后到时空联合规划[[minco]](https://github.com/ZJU-FAST-Lab/GCOPTER), [Geometrically Constrained Trajectory Optimization for Multicopters](https://ieeexplore.ieee.org/document/9765821), TRO 2022, Fast Lab ZJU，提出了基于几何约束的轨迹优化方法，解决了多旋翼的时空联合规划问题。
+* [Dynamically Feasible Trajectory Generation With Optimization-Embedded Networks for Autonomous Flight](https://doi.org/10.1109/LRA.2025.3595077), RAL 2025, Fast Lab ZJU, 将learned spatial constraints与embedded trajectory optimization结合，实现从depth observation到动态可行轨迹的生成
+* [Hierarchically depicting vehicle trajectory with stability in complex environments](https://www.science.org/doi/10.1126/scirobotics.ads4551), Science Robotics 2025, Fast Lab ZJU, 采用learning-based front-end pathfinding，并结合numerically stable spatiotemporal trajectory optimization实现复杂环境中的稳定运动
+* [TOP: Trajectory Optimization via Parallel Optimization towards Constant Time Complexity](https://arxiv.org/abs/2507.10290), ArXiv 2025, Fast Lab ZJU, 基于CADMM将长轨迹分段并行优化，使单次迭代复杂度相对trajectory segment数量趋近O(1)
 
 <section id="racing"></section>
 
@@ -296,11 +307,13 @@
 Davide 的 Agile flight 和 Racing 有点交叉，主要基于优化，RL及differential做：
 
 * [rpg research: Agile Drone Flight](https://rpg.ifi.uzh.ch/aggressive_flight.html) and [rpg research: Drone Racing](https://rpg.ifi.uzh.ch/research_drone_racing.html)，可以直接关注他们的research发布页，也可以关注 [publicaitons](https://rpg.ifi.uzh.ch/publications.html) 和 [Davide 的 Google Scholar](https://scholar.google.com/citations?user=SC9wV2kAAAAJ&hl=en)。
+* [Learning Agile Quadrotor Flight in the Real World](https://rpg.ifi.uzh.ch/lafr/), RSS 2026, RPG UZH, 通过real-world rollout、differentiable simulation与online policy adaptation，使飞行策略在真实系统中持续提升速度与敏捷性
 * [Environment as Policy: Learning to Race in Unseen Tracks](https://rpg.ifi.uzh.ch/env_as_policy/), ICRA 2025, one single racing policy efficiently learns to race in diverse and challenging tracks
 * [Student-Informed Teacher Training](https://rpg.ifi.uzh.ch/sitt/), ICLR 2025 spotlight, 简称ST训练，与BC&DAgger对比，虽然在racing上没那么多实验涉及，但很有意思的工作
 * [Dream to Fly: Model-Based Reinforcement Learning for Vision-Based Drone Flight](http://arxiv.org/abs/2501.14377), vision+RL
 * 中间的一些工作这里不详细介绍了，直接看[rpg research: Agile Drone FLight](https://rpg.ifi.uzh.ch/aggressive_flight.html)，比如AC-MPC，MPCC++等，都是很好的工作，racinger们可以直接参考。
 * [Autonomous Drone Racing: A Survey](https://ieeexplore.ieee.org/document/10530312), TRO 2024, racing survey
+* [Bootstrapping Reinforcement Learning with Imitation for Vision-Based Agile Flight](https://arxiv.org/abs/2403.12203), CoRL 2024, RPG UZH, 结合RL teacher、imitation learning与RL fine-tuning，提高vision-based agile flight的训练效率与鲁棒性
 * [Reaching the limit in autonomous racing: Optimal control versus reinforcement learning](https://www.science.org/doi/10.1126/scirobotics.adg1462), Science Robotics 2023, 不知道有多少人是因为[Yunlong](https://yunlong-song.com/index.html)的这篇SR开始关注RL/learning与racing/agile flight的结合，这篇文章中论证的a better goal是很多面临“为什么要使用RL”时可以回答的一个问题。
 * [Champion-level drone racing using deep reinforcement learning](https://www.nature.com/articles/s41586-023-06419-4)，以及这篇被广大公众号/自媒体转载的Nature文章
 * [Learning Perception-Aware Agile Flight in Cluttered Environments](https://ieeexplore.ieee.org/abstract/document/10160563), 但其实 Yunlong 还做了很多其他的工作，在类似任务下，[Learning Minimum-Time Flight in Cluttered Environments](https://ieeexplore.ieee.org/document/9794627)
@@ -308,16 +321,27 @@ Davide 的 Agile flight 和 Racing 有点交叉，主要基于优化，RL及diff
 
 高飞老师则是model-based，到与learning结合：
 
+* [Precise aggressive aerial maneuvers with sensorimotor policies](https://www.science.org/doi/10.1126/scirobotics.aeb0180), Science Robotics 2026, Fast Lab ZJU, 通过onboard vision与proprioception直接生成low-level control，实现高倾角、窄缝和moving-gap等precise aggressive maneuvers
 * [Unlocking aerobatic potential of quadcopters: Autonomous freestyle flight generation and execution](https://www.science.org/doi/10.1126/scirobotics.adp9905), Science Robotics 2025, [[bilibili]](https://www.bilibili.com/video/BV1WXouYmEaW/)，先拿这篇SR镇楼，三年之作
 * Automatic Generation of Aerobatic Flight in Complex Environments via Diffusion Models, [[bilibili]](https://www.bilibili.com/video/BV1sj5yznEmN/), 也开始diffusion了（diffusion policy+drone有很多做了的和在做的工作）
+* [Reactive Aerobatic Flight via Reinforcement Learning](https://arxiv.org/abs/2505.24396), ArXiv 2025, Fast Lab ZJU, 基于RL从vehicle state与aerobatic intention直接输出控制指令，实现reactive aerobatic flight与continuous inverted flight
+* [Whole-Body Control Through Narrow Gaps from Pixels to Action](https://ieeexplore.ieee.org/document/11128088/), ICRA 2025, Fast Lab ZJU, 通过model-free RL与observation distillation实现从pixels与proprioception到low-level control的whole-body narrow-gap traversal
 * [Fast-Racing: An Open-Source Strong Baseline for SE(3) Planning in Autonomous Drone Racing](https://ieeexplore.ieee.org/document/9543598), RAL 2021, [[bilibili]](https://www.bilibili.com/video/BV1sq4y1779e/)
+
+其他近期相关工作：
+
+* [Vector Field Augmented Differentiable Policy Learning for Vision-Based Drone Racing](https://ieeexplore.ieee.org/document/11433778/), RAL 2026, SJTU, 通过vector field为differentiable policy learning提供连续梯度引导，并结合Delta Action Model提升sim-to-real性能
+* [Vision-Based End-to-End Learning for UAV Traversal of Irregular Gaps via Differentiable Simulation](https://arxiv.org/abs/2604.02779), RAL 2026, SJTU, 基于differentiable simulation训练depth-to-control policy，实现不规则窄缝的vision-based traversal
+* [Mastering Diverse, Unknown, and Cluttered Tracks for Robust Vision-Based Drone Racing](https://arxiv.org/abs/2512.09571), RAL 2026, SJTU, 采用soft-to-hard collision curriculum与asymmetric actor-critic，提高unknown cluttered tracks中的泛化与避障能力
+* [Learning vision-based agile flight via differentiable physics](https://www.nature.com/articles/s42256-025-01048-0), Nature Machine Intelligence 2025, SJTU, 通过differentiable physics直接优化vision-to-control policy，实现复杂环境中的高速敏捷飞行
 
 
 <section id="flight-control"></section>
 
 ## 3.3 Flight Control 飞行控制
 
-todo
+* [Learning on the Fly: Rapid Policy Adaptation via Differentiable Simulation](https://doi.org/10.1109/LRA.2026.3655300), RAL 2026, RPG UZH, 通过residual dynamics learning与differentiable simulation实现real-time online policy adaptation，可快速适应payload变化与外部扰动
+* [A Benchmark Comparison of Learned Control Policies for Agile Quadrotor Flight](https://arxiv.org/abs/2202.10796), ICRA 2022, RPG UZH, 比较不同learned control action representations，指出body-rate+thrust policy在sim-to-real中的鲁棒性优于直接rotor-thrust控制
 
 <section id="exploration"></section>
 
@@ -366,6 +390,7 @@ todo
 ## 3.7 Aerial Manipulation 空中操作
 
 * [Whole-Body Integrated Motion Planning for Aerial Manipulators](https://arxiv.org/abs/2501.06493)
+* [AD-Planner: Adaptive In-flight Delivery Using a Quadrotor with a Suspended Payload](https://doi.org/10.1109/TRO.2026.3710425), TRO 2026, HKUST, 面向suspended-payload delivery，统一考虑pickup、transportation与casting，并支持dynamic target
 
 <section id="novel-design"></section>
 
